@@ -11,7 +11,7 @@ data class TelegramConnection<T : BotApiMethod<out Serializable>, R : Any?>(
     val step: String = "",
     private val userStepService: UserStepService
 ) {
-    fun setStep(step: String) {
-        userStepService.setStep(update.message.chatId, step)
+    fun setStep(step: String, chatId: Long = update.message.chatId) {
+        userStepService.setStep(chatId, step)
     }
 }
